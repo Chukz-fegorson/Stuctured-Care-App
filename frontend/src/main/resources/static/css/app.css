@@ -1,0 +1,286 @@
+:root {
+    --bg: #eef4ee;
+    --surface: rgba(255, 255, 255, 0.78);
+    --surface-strong: #ffffff;
+    --ink: #133227;
+    --muted: #527067;
+    --line: rgba(19, 50, 39, 0.12);
+    --accent: #0f8b6d;
+    --accent-deep: #085846;
+    --highlight: #f2b950;
+    --shadow: 0 22px 50px rgba(19, 50, 39, 0.08);
+    font-family: Bahnschrift, "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at top left, rgba(15, 139, 109, 0.18), transparent 28rem),
+        radial-gradient(circle at top right, rgba(242, 185, 80, 0.2), transparent 24rem),
+        linear-gradient(180deg, #f8fbf8 0%, var(--bg) 100%);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    padding: 1rem 0 2rem;
+}
+
+.hero-copy,
+.hero-panel,
+.section-block {
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+}
+
+.hero-copy {
+    padding: 2.25rem;
+}
+
+.eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.hero h1,
+.section-heading h2 {
+    margin: 0;
+    line-height: 1.04;
+}
+
+.hero h1 {
+    max-width: 12ch;
+    font-size: clamp(2.7rem, 4.4vw, 4.8rem);
+}
+
+.lead {
+    max-width: 65ch;
+    margin: 1.15rem 0 0;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+}
+
+.primary-action,
+.secondary-action,
+.workflow-tab {
+    border-radius: 999px;
+    padding: 0.88rem 1.2rem;
+    font-weight: 700;
+    transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.primary-action {
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+    box-shadow: 0 14px 28px rgba(15, 139, 109, 0.22);
+}
+
+.secondary-action {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.primary-action:hover,
+.secondary-action:hover,
+.workflow-tab:hover {
+    transform: translateY(-1px);
+}
+
+.hero-panel {
+    display: grid;
+    gap: 1rem;
+    padding: 1.2rem;
+}
+
+.metric-card {
+    padding: 1.25rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(19, 50, 39, 0.08);
+}
+
+.metric-label {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+}
+
+.section-block {
+    margin-top: 1.5rem;
+    padding: 1.8rem;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.capability-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.capability-card,
+.workflow-panel,
+.roadmap-item {
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background: var(--surface-strong);
+}
+
+.capability-card {
+    padding: 1.4rem;
+}
+
+.capability-card h3,
+.workflow-panel h3 {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+}
+
+.capability-card p,
+.workflow-panel li,
+.roadmap-item p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.workflow-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.workflow-tab {
+    border: 1px solid var(--line);
+    color: var(--accent-deep);
+    background: rgba(255, 255, 255, 0.72);
+    cursor: pointer;
+}
+
+.workflow-tab.active {
+    color: #ffffff;
+    border-color: transparent;
+    background: linear-gradient(135deg, #1c6d64 0%, #112e2e 100%);
+}
+
+.workflow-panel-wrap {
+    position: relative;
+}
+
+.workflow-panel {
+    display: none;
+    padding: 1.5rem;
+}
+
+.workflow-panel.active {
+    display: block;
+}
+
+.workflow-panel ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.roadmap-list {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.roadmap-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+}
+
+.roadmap-index {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--accent-deep);
+    background: rgba(242, 185, 80, 0.28);
+    font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+    .hero,
+    .capability-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-shell {
+        width: min(100% - 1rem, 1180px);
+        padding-top: 0.75rem;
+    }
+
+    .hero-copy,
+    .section-block {
+        padding: 1.35rem;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .roadmap-item {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+}
+

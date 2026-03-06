@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: structure-health-backend
+  datasource:
+    url: ${STRUCTURE_HEALTH_DB_URL:jdbc:postgresql://localhost:5432/structure_health}
+    username: ${STRUCTURE_HEALTH_DB_USERNAME:postgres}
+    password: ${STRUCTURE_HEALTH_DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+

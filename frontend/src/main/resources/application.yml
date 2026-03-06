@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: structure-health-frontend
+  thymeleaf:
+    cache: false
+
+structure-health:
+  backend-base-url: ${STRUCTURE_HEALTH_BACKEND_BASE_URL:http://localhost:8081}
+
