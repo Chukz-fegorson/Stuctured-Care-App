@@ -8,6 +8,7 @@
 4. Every departmental action updates the encounter timeline.
 5. Billing events are generated from approved services.
 6. The encounter closes only when clinical, operational, and billing tasks are complete.
+7. The patient receives encounter summaries, follow-up instructions, and future appointments through the portal.
 
 Primary actors:
 
@@ -19,7 +20,23 @@ Primary actors:
 - Pharmacy
 - Billing team
 
-## Workflow 2: Hospital Claim Submission
+## Workflow 2: Patient Portal, Messaging, and Virtual Consultation
+
+1. The patient signs into the portal and reviews previous encounters, future appointments, reports, and follow-up instructions.
+2. The patient sends a secure message or request to the hospital.
+3. The hospital routes the request to the right clinical, administrative, or support team.
+4. If a remote review is appropriate, a voice or video consultation is scheduled.
+5. The consultation is synchronized to calendars and reminder notifications are sent automatically.
+6. Consultation outcomes, instructions, and next steps are attached back to the patient record.
+
+Primary actors:
+
+- Patient
+- Patient support desk
+- Clinician
+- Telehealth coordinator
+
+## Workflow 3: Hospital Claim Submission
 
 1. The hospital billing team assembles the claim from encounter evidence.
 2. The system validates payer plan, authorizations, and coded charge items.
@@ -35,7 +52,7 @@ Primary actors:
 - HMO medical reviewer
 - Finance analyst
 
-## Workflow 3: Automated Reconciliation
+## Workflow 4: Automated Reconciliation
 
 1. Patient charges, hospital billing totals, and HMO approved amounts are compared automatically.
 2. Variances are grouped into reconciliation cases.
@@ -51,7 +68,7 @@ Primary actors:
 - Platform reconciliation engine
 - Auditor
 
-## Workflow 4: Ministry Monitoring and Compliance
+## Workflow 5: Ministry Monitoring and Compliance
 
 1. Facilities and HMOs submit or generate approved operational data.
 2. The analytics layer aggregates trends by hospital, state, specialty, disease area, and payer.
@@ -66,7 +83,7 @@ Primary actors:
 - Hospital compliance lead
 - HMO compliance lead
 
-## Workflow 5: Access Governance
+## Workflow 6: Access Governance
 
 1. Platform admin creates an organization and department structure.
 2. Users are assigned role, organization, department, and scope.
@@ -85,8 +102,8 @@ Primary actors:
 The first production slice should cover end-to-end value rather than isolated screens:
 
 1. Organization and user onboarding
-2. Patient registration and encounter creation
-3. Claim preparation and HMO review
-4. Reconciliation case generation
-5. Ministry dashboard and broadcast center
-
+2. Patient registration, portal access, and encounter creation
+3. Secure messaging and virtual consultation scheduling
+4. Claim preparation and HMO review
+5. Reconciliation case generation
+6. Ministry dashboard and broadcast center

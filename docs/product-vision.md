@@ -9,6 +9,7 @@ Structure Health will be the operating system for healthcare coordination across
 Healthcare breaks down when patient records, approvals, departmental workflow, and payer settlement live in separate systems. Structure Health solves this by making each touch point part of one governed workflow:
 
 - the patient sees progress and obligations clearly
+- the patient can review past and future encounters, receive reports, and communicate with the hospital from a portal
 - the hospital sees clinical and billing events in one journey
 - the HMO sees authorization, claims, and settlement evidence in context
 - the Ministry sees near-real-time operational and compliance signals without waiting for manual reports
@@ -19,6 +20,7 @@ Healthcare breaks down when patient records, approvals, departmental workflow, a
 - Reduce claim rejection and reconciliation cycle time
 - Improve visibility into departmental throughput and bottlenecks
 - Improve data quality and compliance auditability
+- Improve follow-up adherence and remote-care continuity through portal and telehealth tooling
 - Provide national, state, and hospital level health intelligence dashboards
 
 ## Design Principles
@@ -34,7 +36,7 @@ Healthcare breaks down when patient records, approvals, departmental workflow, a
 
 ### Patient
 
-Needs registration, coverage verification, appointment visibility, care updates, bills, claim status, and discharge records.
+Needs registration, coverage verification, appointment visibility, encounter history, clinical reports, secure messaging, virtual consultation access, bills, claim status, and discharge records.
 
 ### Clinician
 
@@ -57,9 +59,10 @@ Needs surveillance dashboards, service delivery trends, compliance breaches, and
 - Identity, tenant, and access governance
 - Facility, department, specialty, and registry management
 - Patient administration and longitudinal care record
+- Patient portal, secure messaging, and virtual consultation workflow
 - Clinical workflow and departmental tasking
 - Billing, claims, authorizations, and settlements
 - Automated reconciliation across patient, hospital, and HMO ledgers
 - Broadcast, regulatory checks, audit trails, and reporting
+- Patient-centred clinical reporting and administrative service accountability reporting
 - Executive dashboards for hospitals, HMOs, and the Ministry
-

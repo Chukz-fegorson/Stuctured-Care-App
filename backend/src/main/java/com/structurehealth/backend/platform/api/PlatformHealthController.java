@@ -19,6 +19,7 @@ public class PlatformHealthController {
                 List.of(
                         "identity-access",
                         "patient-records",
+                        "patient-engagement-telehealth",
                         "billing-claims",
                         "reconciliation-settlement",
                         "ministry-reporting"
@@ -33,4 +34,3 @@ public class PlatformHealthController {
     ) {
     }
 }
-

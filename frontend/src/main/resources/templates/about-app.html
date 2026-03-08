@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure Health About App</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="topbar-shell">
+        <a class="brand-mark" href="/">
+            <span class="brand-dot"></span>
+            <span>Structure Health</span>
+        </a>
+        <nav class="topnav">
+            <a class="nav-link"
+               href="/"
+               th:classappend="${activePage == 'about-app'} ? ' active' : ''">About App</a>
+            <a class="nav-link" href="#journey">Journey</a>
+            <a class="nav-link" href="#modules">Modules</a>
+            <a class="nav-link" href="#reports">Reports</a>
+        </nav>
+    </div>
+</header>
+
+<main class="page-shell page-shell-wide">
+    <section class="command-deck">
+        <div class="hero-copy">
+            <p class="eyebrow">About the platform</p>
+            <h1>Structure Health is being designed around the real patient journey, not around isolated hospital forms.</h1>
+            <p class="lead" th:text="${view.mission}">
+                Mission statement.
+            </p>
+            <div class="hero-actions">
+                <a class="primary-action" href="#journey">Review journey model</a>
+                <a class="secondary-action" href="#modules">Review modules</a>
+            </div>
+        </div>
+
+        <div class="summary-grid">
+            <article class="summary-card" th:each="metric : ${view.metrics}">
+                <p class="metric-label" th:text="${metric.label}">Metric label</p>
+                <strong class="summary-value" th:text="${metric.value}">Metric value</strong>
+                <p class="summary-detail" th:text="${metric.detail}">Metric detail</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-block compact-section">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Reference scenarios</p>
+                <h2>Core workflow examples the product is being built to support</h2>
+            </div>
+        </div>
+        <div class="quick-action-grid">
+            <article class="quick-action-card" th:each="action : ${view.quickActions}">
+                <span class="mini-kicker" th:text="${action.owner}">Owner</span>
+                <h3 th:text="${action.title}">Action title</h3>
+                <p th:text="${action.description}">Action description</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-block" id="journey">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Journey blueprint</p>
+                <h2>The product model mirrors how the patient actually moves through care and payment</h2>
+            </div>
+        </div>
+        <div class="journey-grid">
+            <article class="journey-card" th:each="stage, stageStat : ${view.journeyStages}">
+                <span class="journey-index" th:text="${stageStat.count}">1</span>
+                <h3 th:text="${stage.title}">Journey stage</h3>
+                <div class="touchpoint">
+                    <span>Patient</span>
+                    <p th:text="${stage.patientTouchpoint}">Patient touch point</p>
+                </div>
+                <div class="touchpoint">
+                    <span>Hospital</span>
+                    <p th:text="${stage.hospitalTouchpoint}">Hospital touch point</p>
+                </div>
+                <div class="touchpoint">
+                    <span>HMO</span>
+                    <p th:text="${stage.hmoTouchpoint}">HMO touch point</p>
+                </div>
+                <div class="touchpoint">
+                    <span>Reports</span>
+                    <p th:text="${stage.reportOutput}">Report output</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-block" id="modules">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Module architecture</p>
+                <h2>The actual application will be delivered as focused modules with clear ownership</h2>
+            </div>
+        </div>
+
+        <div class="toggle-picker" data-toggle-group="modules">
+            <button class="toggle-tab"
+                    type="button"
+                    th:each="module, moduleStat : ${view.modules}"
+                    th:classappend="${moduleStat.index == 0} ? ' active' : ''"
+                    th:attr="data-toggle-target=${module.key}"
+                    th:text="${module.title}">
+                Module
+            </button>
+        </div>
+
+        <div class="toggle-panels" data-toggle-panels="modules">
+            <article class="toggle-panel module-panel"
+                     th:each="module, moduleStat : ${view.modules}"
+                     th:classappend="${moduleStat.index == 0} ? ' active' : ''"
+                     th:attr="data-toggle-panel=${module.key}">
+                <div class="module-header">
+                    <div>
+                        <p class="mini-kicker" th:text="${module.lifecyclePosition}">Lifecycle position</p>
+                        <h3 th:text="${module.title}">Module title</h3>
+                    </div>
+                    <div class="module-meta">
+                        <span class="pill-chip" th:text="${module.primaryOwner}">Owner</span>
+                        <span class="status-chip" th:text="${module.deliveryStatus}">Status</span>
+                    </div>
+                </div>
+                <p class="module-description" th:text="${module.description}">Module description</p>
+                <div class="module-columns">
+                    <div class="detail-card">
+                        <h4>Submodules</h4>
+                        <ul class="stack-list">
+                            <li th:each="submodule : ${module.submodules}" th:text="${submodule}">Submodule</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h4>Reporting outputs</h4>
+                        <ul class="stack-list">
+                            <li th:each="report : ${module.reportingOutputs}" th:text="${report}">Report</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h4>Primary users</h4>
+                        <ul class="stack-list">
+                            <li th:each="user : ${module.users}" th:text="${user}">User</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Operational boards</p>
+                <h2>Each stakeholder gets a planned board tied to the patient and claims flow</h2>
+            </div>
+        </div>
+        <div class="board-grid">
+            <article class="board-card" th:each="board : ${view.operationsBoards}">
+                <span class="mini-kicker" th:text="${board.audience}">Audience</span>
+                <h3 th:text="${board.title}">Board title</h3>
+                <p th:text="${board.summary}">Board summary</p>
+                <ul class="stack-list">
+                    <li th:each="signal : ${board.signals}" th:text="${signal}">Signal</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Reporting design</p>
+                <h2>Clinical reporting follows the patient, administrative reporting follows service accountability</h2>
+            </div>
+        </div>
+        <div class="report-design-grid">
+            <article class="report-design-card" th:each="design : ${view.reportDesigns}">
+                <span class="mini-kicker" th:text="${design.orientation}">Orientation</span>
+                <h3 th:text="${design.title}">Reporting design</h3>
+                <p th:text="${design.summary}">Summary</p>
+                <ul class="stack-list">
+                    <li th:each="focus : ${design.focusAreas}" th:text="${focus}">Focus area</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-block" id="reports">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Reporting fabric</p>
+                <h2>Report packs are grouped by audience, intervention point, and accountability need</h2>
+            </div>
+        </div>
+        <div class="report-grid">
+            <article class="report-card" th:each="reportPack : ${view.reportPacks}">
+                <span class="mini-kicker" th:text="${reportPack.audience}">Audience</span>
+                <h3 th:text="${reportPack.title}">Report pack title</h3>
+                <ul class="stack-list">
+                    <li th:each="output : ${reportPack.outputs}" th:text="${output}">Output</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Role workspaces</p>
+                <h2>The actual UI will be framed around real users, not generic admin screens</h2>
+            </div>
+        </div>
+        <div class="workspace-grid">
+            <article class="workspace-card" th:each="workspace : ${view.roleWorkspaces}">
+                <span class="mini-kicker" th:text="${workspace.audience}">Audience</span>
+                <h3 th:text="${workspace.title}">Workspace title</h3>
+                <ul class="stack-list">
+                    <li th:each="responsibility : ${workspace.responsibilities}" th:text="${responsibility}">Responsibility</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+</main>
+
+<script th:src="@{/js/app-shell.js}"></script>
+</body>
+</html>

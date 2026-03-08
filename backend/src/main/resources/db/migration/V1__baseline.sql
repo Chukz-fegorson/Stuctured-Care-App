@@ -50,6 +50,41 @@ create table encounter (
     closed_at timestamp
 );
 
+create table patient_message_thread (
+    id uuid primary key,
+    patient_id uuid not null references patient_profile (id),
+    hospital_id uuid not null references organization (id),
+    encounter_id uuid references encounter (id),
+    subject varchar(200) not null,
+    thread_status varchar(30) not null,
+    created_at timestamp not null default current_timestamp
+);
+
+create table patient_message (
+    id uuid primary key,
+    thread_id uuid not null references patient_message_thread (id),
+    sender_user_id uuid references user_account (id),
+    sender_patient_id uuid references patient_profile (id),
+    message_type varchar(30) not null,
+    body text not null,
+    sent_at timestamp not null default current_timestamp
+);
+
+create table virtual_consultation (
+    id uuid primary key,
+    patient_id uuid not null references patient_profile (id),
+    encounter_id uuid references encounter (id),
+    hospital_id uuid not null references organization (id),
+    clinician_user_id uuid references user_account (id),
+    consultation_status varchar(30) not null,
+    session_mode varchar(20) not null,
+    scheduled_start timestamp not null,
+    scheduled_end timestamp,
+    meeting_reference varchar(200),
+    calendar_sync_status varchar(30) not null,
+    created_at timestamp not null default current_timestamp
+);
+
 create table claim_case (
     id uuid primary key,
     encounter_id uuid not null unique references encounter (id),
@@ -91,4 +126,3 @@ create table audit_event (
     details text,
     occurred_at timestamp not null default current_timestamp
 );
-

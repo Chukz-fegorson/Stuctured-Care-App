@@ -1,0 +1,22 @@
+truncate table
+    audit_event,
+    broadcast_message,
+    virtual_consultation,
+    patient_message,
+    patient_message_thread,
+    reconciliation_case,
+    claim_case,
+    encounter_documentation,
+    discharge_plan,
+    department_task,
+    consultation_note,
+    triage_assessment,
+    inventory_movement,
+    inventory_item,
+    appointment,
+    encounter,
+    patient_profile,
+    user_account,
+    department,
+    organization
+restart identity cascade;

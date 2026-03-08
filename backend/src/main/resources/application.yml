@@ -1,13 +1,13 @@
 server:
-  port: 8081
+  port: 6060
 
 spring:
   application:
     name: structure-health-backend
   datasource:
-    url: ${STRUCTURE_HEALTH_DB_URL:jdbc:postgresql://localhost:5432/structure_health}
-    username: ${STRUCTURE_HEALTH_DB_USERNAME:postgres}
-    password: ${STRUCTURE_HEALTH_DB_PASSWORD:postgres}
+    url: ${STRUCTURE_HEALTH_DB_URL:jdbc:postgresql://localhost:5432/strutured_care}
+    username: ${STRUCTURE_HEALTH_DB_USERNAME:strutured_care}
+    password: ${STRUCTURE_HEALTH_DB_PASSWORD:strutured_care}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -25,3 +25,6 @@ management:
       exposure:
         include: health,info
 
+structure-health:
+  frontend:
+    allowed-origins: ${STRUCTURE_HEALTH_FRONTEND_ALLOWED_ORIGINS:http://localhost:6070,http://localhost:6060}

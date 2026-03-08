@@ -1,0 +1,22 @@
+server:
+  port: 6064
+
+spring:
+  application:
+    name: billing-claims-service
+  datasource:
+    url: ${STRUCTURE_HEALTH_DB_URL:jdbc:postgresql://localhost:5432/strutured_care}
+    username: ${STRUCTURE_HEALTH_DB_USERNAME:strutured_care}
+    password: ${STRUCTURE_HEALTH_DB_PASSWORD:strutured_care}
+  flyway:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+structure-health:
+  frontend:
+    allowed-origins: ${STRUCTURE_HEALTH_FRONTEND_ALLOWED_ORIGINS:http://localhost:6060,http://localhost:6070}

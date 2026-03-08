@@ -50,9 +50,29 @@ Acceptance focus:
 - workflow states are visible by patient and department
 - overdue tasks are highlighted
 
+### Story 6
+
+As a patient, I want a portal where I can review previous encounters, future appointments, reports, and follow-up instructions so I remain informed between visits.
+
+Acceptance focus:
+
+- portal shows prior and upcoming encounters tied to the patient identity
+- patient can access approved reports, prescriptions, and discharge documents
+- follow-up and reminders remain visible after discharge
+
+### Story 7
+
+As a patient, I want secure chat plus scheduled voice or video consultation with the hospital so I can receive remote support and virtual care when appropriate.
+
+Acceptance focus:
+
+- messages are routed to the correct hospital team with auditable response history
+- virtual consultations can be scheduled and synchronized to calendars
+- consultation notes and outcomes attach to the patient timeline
+
 ## Epic 3: Hospital and Department Operations
 
-### Story 6
+### Story 8
 
 As a hospital administrator, I want dashboards for admissions, waiting patients, bed usage, diagnostics backlog, pharmacy status, and billed services so I can manage capacity and service quality.
 
@@ -63,7 +83,7 @@ Acceptance focus:
 
 ## Epic 4: Insurance and Claims
 
-### Story 7
+### Story 9
 
 As an HMO officer, I want to validate patient eligibility and pre-authorization requests before care is billed so I can manage utilization correctly.
 
@@ -72,16 +92,16 @@ Acceptance focus:
 - eligibility checks are tied to payer plans and patient membership
 - approvals and denials keep reasons and timestamps
 
-### Story 8
+### Story 10
 
 As a hospital billing officer, I want to submit claims with supporting clinical and financial evidence so claims move through review without repeated manual follow-up.
 
 Acceptance focus:
 
-- claim packages reference encounter records, orders, and billed line items
+- claim packages reference encounter records, portal follow-up events where relevant, orders, and billed line items
 - status updates notify the right internal teams
 
-### Story 9
+### Story 11
 
 As a finance and reconciliation analyst, I want automated comparison between patient, hospital, and HMO positions so mismatches are flagged before settlement is closed.
 
@@ -92,16 +112,16 @@ Acceptance focus:
 
 ## Epic 5: Ministry Oversight and Broadcast
 
-### Story 10
+### Story 12
 
 As a ministry analyst, I want dashboards across hospitals, HMOs, and regions so I can monitor utilization, disease trends, and compliance issues.
 
 Acceptance focus:
 
-- dashboards support filters by geography, facility type, and time
+- dashboards support filters by geography, facility type, time, and approved patient-service trends
 - approved metrics can be exported and audited
 
-### Story 11
+### Story 13
 
 As a ministry official, I want to send targeted broadcasts to hospitals, HMOs, or all platform users so policy directives reach the right audience immediately.
 
@@ -110,3 +130,24 @@ Acceptance focus:
 - broadcasts can target organization types, states, regions, or all users
 - delivery and acknowledgment status are visible
 
+## Epic 6: Reporting and Accountability
+
+### Story 14
+
+As a doctor, patient, hospital reviewer, or HMO reviewer, I want clinical reports to be structured around the patient and what was done for them so care review stays longitudinal and evidence-based.
+
+Acceptance focus:
+
+- reports are grouped by patient and encounter history
+- reports capture findings, procedures, medications, outcomes, and follow-up actions
+- reports identify who performed or approved each clinical action
+
+### Story 15
+
+As a hospital operations lead, finance officer, HMO reviewer, or auditor, I want administrative reports to show requested, done, undone, pending, billed, unbilled, claimed, and unclaimed services so accountability gaps are visible immediately.
+
+Acceptance focus:
+
+- reports can be filtered by patient, service, department, payer, and user
+- reports identify who requested, performed, billed, claimed, reconciled, or left work pending
+- unresolved operational and financial leakages are easy to escalate

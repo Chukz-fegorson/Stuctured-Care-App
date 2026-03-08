@@ -14,7 +14,11 @@
     <modules>
         <module>shared-domain</module>
         <module>backend</module>
-        <module>frontend</module>
+        <module>identity-access-service</module>
+        <module>patient-access-service</module>
+        <module>care-flow-service</module>
+        <module>billing-claims-service</module>
+        <module>reporting-compliance-service</module>
     </modules>
 
     <properties>
@@ -40,10 +44,16 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.13.0</version>
                     <configuration>
                         <release>${java.version}</release>
+                        <parameters>true</parameters>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -55,4 +65,3 @@
         </pluginManagement>
     </build>
 </project>
-

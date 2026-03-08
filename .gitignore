@@ -2,6 +2,11 @@ target/
 .idea/
 .vscode/
 *.log
+*.err.log
 *.tmp
 .env
-
+.env.local
+node_modules/
+dist/
+.local/
+gcm-diagnose.log
